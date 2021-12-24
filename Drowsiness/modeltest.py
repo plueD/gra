@@ -33,9 +33,7 @@ TS=(24,24)
 train_batch= generator('data/train',shuffle=True, batch_size=BS,target_size=TS)
 valid_batch= generator('data/test',shuffle=True, batch_size=BS,target_size=TS) #data/valid -> data/test
 SPE= len(train_batch.classes)//BS
-##
 VS = len(valid_batch.classes)//BS
-##
 print(SPE,VS)
 
 
@@ -72,6 +70,7 @@ model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accurac
 hist = model.fit_generator(train_batch, validation_data=valid_batch,epochs=2 ,steps_per_epoch=SPE ,validation_steps=VS)
 
 ##model.save('models/cnnCat2.h5', overwrite=True)
+
 
 hist.histry
 ##hist.histry["loss"]-> list -> numpy.array
