@@ -17,7 +17,7 @@ from numpy.core.records import array
 
 
 
-def generator(dir, gen=image.ImageDataGenerator(rescale=1./255), shuffle=True,batch_size=16,target_size=(24,24),class_mode='categorical' ):
+def generator(dir, gen=image.ImageDataGenerator(rescale=1./255), shuffle=True,batch_size=1,target_size=(24,24),class_mode='categorical' ):
 
     return gen.flow_from_directory(dir,batch_size=batch_size,shuffle=shuffle,color_mode='grayscale',class_mode=class_mode,target_size=target_size)
 
@@ -75,5 +75,5 @@ hist = model.fit_generator(train_batch, validation_data=valid_batch,epochs=2 ,st
 ##model.save('models/cnnCat2.h5', overwrite=True)
 
 
-hist.histry
+#hist.histry
 ##hist.histry["loss"]-> list -> numpy.array
